@@ -1,54 +1,62 @@
 package fr.fxjavadevblog.preconditions;
 
-import static org.junit.Assert.assertEquals;
-
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class CheckerTest {
+class CheckerTest
+{
 
 	@Test
-	void testNotNull() {
-		String arg = "dummy";
-		String details = "should not be null";
-		this.checkExceptionMessage(() -> Checker.notNull(null, "%s "+ details, arg), arg + " " + details);
-		
+	void testNotNull()
+	{
+		this.checkException(() -> Checker.notNull("dummy", null));
 	}
-	
+
 	@Test
-	void testNotNullLambdas() {
-		String msg = "dummy should not be null";
-		this.checkExceptionMessage(() -> Checker.notNull(null, IllegalArgumentException::new, msg) , msg);	
+	void testNotNullLambdas()
+	{
+		this.checkException(() -> Checker.notNull("Exception : dummy should not be null", null, IllegalArgumentException::new));
 	}
-	
+
 	@Test
-	void testInRange() {
-		this.checkExceptionMessage(() -> Checker.inRange(0, 1, 10, "%s is %d but must be between %d and %d", "dummy"), "dummy is 0 but must be between 1 and 10");	
+	void testInRange()
+	{
+		this.checkException(() -> Checker.inRange("dummy", 0, 1, 10));
 	}
-	
+
 	@Test
 	void testNotEmpty()
 	{
-		List <Object> emptyList = new LinkedList<>();
-		this.checkExceptionMessage(() -> Checker.notEmpty(emptyList, "The collection %s must not be empty", "emptyList"), "The collection emptyList must not be empty");
+		List<Object> emptyList = new LinkedList<>();
+		this.checkException(() -> Checker.notEmpty("emptyList", emptyList));
 	}
-	
-	private void checkExceptionMessage(Runnable runnable, String message)
+
+	@Test
+	void testMapNotContainsNull()
+	{
+		Map<String, String> argMap = new HashMap<>();
+		argMap.put("key-00", "hello");
+		argMap.put("key-01", "world");
+		argMap.put("key-02", null);
+		this.checkException(() -> Checker.notAnyNullValue("argMap", argMap));
+	}
+
+	private void checkException(Runnable runnable)
 	{
 		try
 		{
 			runnable.run();
 		}
-		catch (IllegalArgumentException e) {
+		catch (IllegalArgumentException e)
+		{
 			log.info(e.getMessage());
-			assertEquals(message, e.getMessage());
 		}
-		
 	}
-
 }
