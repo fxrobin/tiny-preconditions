@@ -22,7 +22,6 @@ package fr.fxjavadevblog.preconditions;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.ResourceBundle;
 import java.util.function.BiFunction;
 import java.util.function.BooleanSupplier;
 import java.util.function.Function;
@@ -59,11 +58,6 @@ public final class Checker
 	{
 		// protecting constructor of this class.
 	}
-
-	/**
-	 * i18n message bundle.
-	 */
-	static ResourceBundle bundle = ResourceBundle.getBundle("fr.fxjavadevblog.preconditions.tiny-preconditions");
 
 	/**
 	 * check if the argument is null and throws IllegalArugmentException if
