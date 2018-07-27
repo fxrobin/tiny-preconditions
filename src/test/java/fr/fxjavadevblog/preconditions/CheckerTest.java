@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,32 +15,32 @@ class CheckerTest
 {
 
 	@Test
-	void testNotNull()
+	public void testNotNull()
 	{
 		this.checkException(() -> Checker.notNull("dummy", null));
 	}
 
 	@Test
-	void testNotNullLambdas()
+	public void testNotNullLambdas()
 	{
 		this.checkException(() -> Checker.notNull("Exception : dummy should not be null", null, IllegalArgumentException::new));
 	}
 
 	@Test
-	void testInRange()
+	public void testInRange()
 	{
 		this.checkException(() -> Checker.inRange("dummy", 0, 1, 10));
 	}
 
 	@Test
-	void testNotEmpty()
+	public void testNotEmpty()
 	{
 		List<Object> emptyList = new LinkedList<>();
 		this.checkException(() -> Checker.notEmpty("emptyList", emptyList));
 	}
 
 	@Test
-	void testMapNotContainsNull()
+	public void testMapNotContainsNull()
 	{
 		Map<String, String> argMap = new HashMap<>();
 		argMap.put("key-00", "hello");
@@ -53,6 +54,7 @@ class CheckerTest
 		try
 		{
 			runnable.run();
+			Assert.fail("Exception should have occured !");
 		}
 		catch (IllegalArgumentException e)
 		{
