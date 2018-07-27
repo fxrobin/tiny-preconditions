@@ -1,4 +1,23 @@
+/* (C) Copyright 2018  François-Xavier Robin
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Contributors: François-Xavier Robin
+ */
+
 package fr.fxjavadevblog.preconditions;
+
+
 
 import java.util.Collection;
 import java.util.Map;
@@ -179,6 +198,19 @@ public final class Checker
 		}
 	}
 
+	/**
+	 * check if the BooleanSupplier predicate returns true.
+	 * 
+	 * @param argumentName
+	 *            name of the argument
+	 * @param predicate
+	 *            predicate which must return true or false
+	 * @param message
+	 *            message included in the exception message
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the BooleanSupplier does not return "true"
+	 */
 	public static void respects(String argumentName, BooleanSupplier predicate, String message)
 	{
 		if (!predicate.getAsBoolean())
@@ -187,6 +219,21 @@ public final class Checker
 		}
 	}
 
+	/**
+	 * check if the argument passed to the predicate returns true.
+	 * 
+	 * @param argumentName
+	 *            name of the argument
+	 * @param t
+	 *            argument to check
+	 * @param predicate
+	 *            predicate to apply on the argument
+	 * @param message
+	 *            message included in the exception message
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the predicate does not return "true"
+	 */
 	public static <T> void respects(String argumentName, T t, Predicate<T> predicate, String message)
 	{
 		if (!predicate.test(t))
@@ -194,6 +241,25 @@ public final class Checker
 			throw new IllegalArgumentException(PreconditionMessage.SHOULD_RESPECT_BOOLEAN_CONDITION.format(argumentName, message));
 		}
 	}
+
+	/**
+	 * check if the argument passed to the predicate returns true.
+	 * 
+	 * @param argumentName
+	 *            name of the argument
+	 * @param t
+	 *            argument to check
+	 * @param predicate
+	 *            predicate to apply on the argument
+	 * @param function
+	 *            function which returns any RuntimeException and takes a String
+	 *            message and T in one of its constructors. To be used with
+	 *            method reference of Java 8.
+	 * 
+	 * @throws RuntimeException
+	 *             returned by the function if the predicate does not return
+	 *             "true"
+	 */
 
 	public static <T> void respects(String argumentName, T t, Predicate<T> predicate, BiFunction<String, T, ? extends RuntimeException> function)
 	{
@@ -203,8 +269,20 @@ public final class Checker
 		}
 	}
 
+	/**
+	 * check if the Map does not contain any null references in its values.
+	 * 
+	 * @param argumentName
+	 *            name of the argument
+	 * @param map
+	 *            map to test, should not be null
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the map contains any null references in its values
+	 */
 	public static void notAnyNullValue(String argumentName, Map<?, ?> map)
 	{
+		Checker.notNull("map", map);
 		for (Entry<?, ?> e : map.entrySet())
 		{
 			if (e.getValue() == null)
