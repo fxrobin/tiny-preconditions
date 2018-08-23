@@ -20,6 +20,12 @@ package fr.fxjavadevblog.preconditions;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
+/**
+ * represents a validation message error which can be modified (supports i18n) thanks to the file "tiny-preconditions.properties".
+ * 
+ * @author fxjavadevblog
+ *
+ */
 public enum PreconditionMessage
 {
 	SHOULD_NOT_BE_NULL, 
@@ -39,6 +45,14 @@ public enum PreconditionMessage
 		return new MessageFormat(PreconditionMessage.bundle.getString(this.toString()));
 	}
 
+	/**
+	 * returns the full message injected with the given arguments.
+	 * 
+	 * @param objects
+	 * 		arguments which will replace defined parameters in the message format String
+	 * @return
+	 * 		full message
+	 */
 	public String format(Object... objects)
 	{
 		return this.getMessageFormat().format(objects);
