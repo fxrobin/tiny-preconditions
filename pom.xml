@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.fxjavadevblog</groupId>
 	<artifactId>tiny-preconditions</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<name>Tiny Preconditions Library</name>
 	<description>A very tiny library with nodeps to validate method arguments</description>
 
