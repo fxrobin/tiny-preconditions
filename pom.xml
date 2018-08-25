@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.fxjavadevblog</groupId>
 	<artifactId>tiny-preconditions</artifactId>
-	<version>1.0.7-SNAPSHOT</version>
+	<version>1.0.7</version>
 	<name>Tiny Preconditions Library</name>
 	<description>A very tiny library with nodeps to validate method arguments</description>
 
@@ -152,7 +151,7 @@
 		<connection>scm:git:https://github.com/fxrobin/tiny-preconditions.git</connection>
 		<developerConnection>scm:git:https://github.com/fxrobin/tiny-preconditions.git</developerConnection>
 		<url>https://github.com/fxrobin/tiny-preconditions</url>
-		<tag>tiny-preconditions-1.0.3</tag>
+		<tag>tiny-preconditions-1.0.7</tag>
 	</scm>
 
 	<profiles>
