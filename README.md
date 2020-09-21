@@ -2,6 +2,8 @@
 
 A really-really small library to check method arguments.
 
+[![Build Status](https://travis-ci.org/fxrobin/tiny-preconditions.svg?branch=master)](https://travis-ci.org/fxrobin/tiny-preconditions)
+
 ## Usage
 
 ```java
