@@ -2,11 +2,9 @@
 
 A really-really small library to check method arguments.
 
-## External tools
-
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/fxrobin/functional-switch)
 [![Build Status](https://travis-ci.org/fxrobin/tiny-preconditions.svg?branch=master)](https://travis-ci.org/fxrobin/tiny-preconditions)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e5c0243120047eb93d299de2ec5c566)](https://www.codacy.com/manual/fxrobin/tiny-preconditions/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fxrobin/tiny-preconditions&amp;utm_campaign=Badge_Grade)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/fxrobin/functional-switch)
 
 ## Usage
 
