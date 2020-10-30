@@ -27,13 +27,13 @@ class CheckerTest
 	}
 
 	@Test
-	public void testInRange()
+	void testInRange()
 	{
 		this.checkException(() -> Checker.inRange("dummy", 0, 1, 10));
 	}
 
 	@Test
-	public void testNotEmpty()
+	void testNotEmpty()
 	{
 		List<Object> emptyList = new LinkedList<>();
 		this.checkException(() -> Checker.notEmpty("emptyList", emptyList));
