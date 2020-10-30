@@ -15,13 +15,13 @@ class CheckerTest
 {
 
 	@Test
-	public void testNotNull()
+	void testNotNull()
 	{
 		this.checkException(() -> Checker.notNull("dummy", null));
 	}
 
 	@Test
-	public void testNotNullLambdas()
+	void testNotNullLambdas()
 	{
 		this.checkException(() -> Checker.notNull("Exception : dummy should not be null", null, IllegalArgumentException::new));
 	}
@@ -40,7 +40,7 @@ class CheckerTest
 	}
 
 	@Test
-	public void testMapNotContainsNull()
+	void testMapNotContainsNull()
 	{
 		Map<String, String> argMap = new HashMap<>();
 		argMap.put("key-00", "hello");
