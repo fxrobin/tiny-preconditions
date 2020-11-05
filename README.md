@@ -46,9 +46,23 @@ public static void demoPreconditions(String name, Integer age, byte[] picture, C
 }
 ```
 
+## Code quality
+
+This project aims to be rated A with Codacy and Codefactor.
+
+Developments are and will be made in that goal.
+
+Current quality status : [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e5c0243120047eb93d299de2ec5c566)](https://www.codacy.com/manual/fxrobin/tiny-preconditions/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fxrobin/tiny-preconditions&amp;utm_campaign=Badge_Grade)
+[![CodeFactor](https://www.codefactor.io/repository/github/fxrobin/tiny-preconditions/badge)](https://www.codefactor.io/repository/github/fxrobin/tiny-preconditions)
+
+## Travis CI Building
+
+This project is build with Travis-CI and tested with JDK 8 and JDK 11.
+
+Current build status : [![Build Status](https://travis-ci.org/fxrobin/tiny-preconditions.svg?branch=master)](https://travis-ci.org/fxrobin/tiny-preconditions)
+
 ## I Need You!
 
 Please feel free to collaborate to this tiny project to make it as tiny as possible but as powerfull as it could be.
 
 This is very easy thanx to Gitpod. Click on this badge to open a fully configured IDE inside your browser [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/fxrobin/tiny-preconditions)
-
