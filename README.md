@@ -36,15 +36,36 @@ Here is an example used in the JUnit tests :
 ```java
 public static void demoPreconditions(String name, Integer age, byte[] picture, Collection<String> skills)
 {
-	Checker.notNull(name, MSG_NOT_NULL, "name");
-	Checker.notNull(age, MSG_NOT_NULL, "age");
-	Checker.notNull(picture, MSG_NOT_NULL, "picture");
-	Checker.respects(name, pattern, MSG_UPPER_CASE, "name");
-	Checker.inRange(age, AGE_MIN, AGE_MAX, AgeException::new, "age");
-	Checker.respects(picture, ValidationUtils::isPngData, MSG_NOT_PNG_IMAGE, "picture");
-	Checker.notEmpty(skills, MSG_NOT_EMPTY_COLLECTION, "skills");
+    Checker.notNull("name",name);
+    Checker.notNull("name",name, Predicate.not(String::isEmpty); // Java 11
+    Checker.notNull("age", age, IllegalArgumentException::new);
+    Checker.notNull(picture, "picture");
+    Checker.inRange("age", age, 14, 18);
+    Checker.inRange("age", age, 14, 18, AgeBusinessException::new);
+    Checker.respects("name", name, "[A-Z]+");
+    Checker.respects("picture", picture, ValidationUtils::isPngData);
+    Checker.notEmpty("skills", skills);
 }
 ```
+
+## i18n
+
+Messages are bundled into the file "tiny-preconditions.properties".
+They are loaded and accessed by the enum class `PreconditionMessage`.
+
+Here are the default messages : 
+
+```
+SHOULD_NOT_BE_NULL=The argument {0} should not be null
+SHOULD_NOT_BE_EMPTY=The argument {0} should not be empty
+SHOULD_BE_BETWEEN=The argument {0} should be between {1} and {2} inclusive
+SHOULD_MATCH_REGEXP=The argument {0} should match this regexp {1}
+SHOULD_RESPECT_BOOLEAN_CONDITION=The argument {0} should respect this boolean condition \: {1}
+MAP_SHOULD_NOT_CONTAIN_ANY_NULL_REFERENCE=The map {0} should not contain any null references but key [{1}] refers to null
+
+```
+
+Localized and custom messages can be easily added.
 
 ## Code quality
 
