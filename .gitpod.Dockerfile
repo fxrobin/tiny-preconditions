@@ -1,5 +1,7 @@
 FROM gitpod/workspace-full
 
+USER gitpod
+
 # Install "software-properties-common" (for the "add-apt-repository")
 RUN sudo apt-get update 
 RUN sudo apt-get install -y software-properties-common
