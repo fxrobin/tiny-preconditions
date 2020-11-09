@@ -3,3 +3,7 @@ image:
 
 tasks:
   - init: mvn install -DskipTests=true
+
+vscode:
+  extensions:
+    - vscjava.vscode-maven@0.21.2:tFEkt2FqLujaNTLU5AmRiQ==
