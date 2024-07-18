@@ -2,6 +2,7 @@
 
 A really-really small library to check method arguments.
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/64868e7a33e747a3bdf395870cc32016)](https://app.codacy.com/gh/fxrobin/tiny-preconditions/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/fxrobin/tiny-preconditions/badge)](https://www.codefactor.io/repository/github/fxrobin/tiny-preconditions)
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/fxrobin/tiny-preconditions)
 [![hackmd-github-sync-badge](https://hackmd.io/HsI9GxZyQCydR3lXJ1Xjqg/badge)](https://hackmd.io/HsI9GxZyQCydR3lXJ1Xjqg)
