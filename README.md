@@ -16,7 +16,7 @@ Just add this dependency to you maven project :
 <dependency>
     <groupId>fr.fxjavadevblog</groupId>
     <artifactId>tiny-preconditions</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.10</version>
 </dependency>
 ```
 
