@@ -1,42 +1,45 @@
 package fr.fxjavadevblog.preconditions;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 class CheckerTest
 {
 
 	@Test
 	void testNotNull()
 	{
-		this.checkException(() -> Checker.notNull("dummy", null));
+		Executable executable = () -> Checker.notNull("dummy", null);
+		assertThrows(IllegalArgumentException.class, executable);
 	}
 
 	@Test
 	void testNotNullLambdas()
 	{
-		this.checkException(() -> Checker.notNull("Exception : dummy should not be null", null, IllegalArgumentException::new));
+		Executable executable = () -> Checker.notNull("dummy", null, IllegalArgumentException::new);
+		assertThrows(IllegalArgumentException.class, executable);
 	}
 
 	@Test
 	void testInRange()
 	{
-		this.checkException(() -> Checker.inRange("dummy", 0, 1, 10));
+		Executable executable = () -> Checker.inRange("dummy", 0, 1, 10);
+		assertThrows(IllegalArgumentException.class, executable);
 	}
 
 	@Test
 	void testNotEmpty()
 	{
 		List<Object> emptyList = new LinkedList<>();
-		this.checkException(() -> Checker.notEmpty("emptyList", emptyList));
+		Executable executable = () -> Checker.notEmpty("emptyList", emptyList);
+		assertThrows(IllegalArgumentException.class, executable);
 	}
 
 	@Test
@@ -46,19 +49,8 @@ class CheckerTest
 		argMap.put("key-00", "hello");
 		argMap.put("key-01", "world");
 		argMap.put("key-02", null);
-		this.checkException(() -> Checker.notAnyNullValue("argMap", argMap));
+		Executable executable = () -> Checker.notAnyNullValue("argMap", argMap);
+		assertThrows(IllegalArgumentException.class, executable);
 	}
 
-	private void checkException(Runnable runnable)
-	{
-		try
-		{
-			runnable.run();
-			Assert.fail("Exception should have occured !");
-		}
-		catch (IllegalArgumentException e)
-		{
-			log.info(e.getMessage());
-		}
-	}
 }
